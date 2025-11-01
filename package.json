@@ -1,0 +1,30 @@
+{
+  "name": "cse341",
+  "version": "1.0.0",
+  "description": "my cse341 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolasmorise/cse341-project1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolasmorise/cse341-project1/issues"
+  },
+  "homepage": "https://github.com/nicolasmorise/cse341-project1#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "mongodb": "^6.20.0",
+    "nodemon": "^3.1.10"
+  },
+  "devDependencies": {
+    "@types/mongodb": "^4.0.6"
+  }
+}
