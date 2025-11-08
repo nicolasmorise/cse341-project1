@@ -8,7 +8,6 @@ async function getContactsData() {
     return contacts;
 }
 
-// model
 async function getContactSingleData(id) {
     if (!id || !ObjectId.isValid(id)) return null;
     const db = mongodb.getDb().db('project');
