@@ -5,6 +5,10 @@ const routes = require('./api/routes/routes')
 const port = process.env.PORT || 3000;
 const MongoClient = require('mongodb').MongoClient;
 const mongodb = require("./api/db/connect");
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger-output.json');
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use(bodyParser.json());
 
@@ -12,6 +16,7 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', "*");
     next();
 })
+
 app.use('/', routes);
 mongodb.initDb((err, mongodb) => {
   if (err) {

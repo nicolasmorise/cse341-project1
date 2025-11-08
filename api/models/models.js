@@ -14,6 +14,22 @@ async function getContactSingleData(id) {
     return await db.collection('contacts').findOne({ _id: new ObjectId(id) });
 }
 
+async function createUser(contact) {
+    const db = mongodb.getDb().db('project');
+    const result = await db.collection('contacts').insertOne(contact);
+    return result;
+}
 
+async function updateContact(id, contact) {
+    const db = mongodb.getDb().db('project');
+    const result = db.collection('contacts').replaceOne({_id: new ObjectId(id)}, contact);
+    return result;
+}
 
-module.exports = { getContactsData, getContactSingleData };
+async function deleteContact(id) {
+    const db = mongodb.getDb().db('project');
+    const result = await db.collection('contacts').deleteOne({_id: new ObjectId(id)});
+    return result;
+}
+
+module.exports = { getContactsData, getContactSingleData, createUser, updateContact, deleteContact};
