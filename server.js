@@ -7,6 +7,7 @@ const MongoClient = require('mongodb').MongoClient;
 const mongodb = require("./api/db/connect");
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger-output.json');
+const { errorHandler } = require("./api/middleware/errorHandler");
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
@@ -18,6 +19,9 @@ app.use((req, res, next) => {
 })
 
 app.use('/', routes);
+
+app.use(errorHandler);
+
 mongodb.initDb((err, mongodb) => {
   if (err) {
     console.log(err);

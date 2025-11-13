@@ -3,6 +3,8 @@ const app = express();
 
 const models = require('../models/models')
 
+
+// Send a hello world
 const hello_world = (req, res, next) => {
   try {
     res.send('Hello World');
@@ -11,6 +13,8 @@ const hello_world = (req, res, next) => {
   }
 };
 
+
+// Controller to get all contacts
 const getContacts = async (req, res, next) => {
     try{
         const data = await models.getContactsData();
@@ -21,6 +25,7 @@ const getContacts = async (req, res, next) => {
     }
 };
 
+// Controller to get single contact
 const getSingleContacts = async (req, res, next) => {
     try {
         const id = req.params.id;
@@ -32,6 +37,8 @@ const getSingleContacts = async (req, res, next) => {
     }
 };
 
+
+// Controller to create user
 const createUsers = async (req, res, next) => {
   try {
     const contact = {
@@ -54,6 +61,7 @@ const createUsers = async (req, res, next) => {
   }
 }
 
+// Controller to update contacts
 async function updateContacts(req, res) {
   try {
     const userId = req.params.id;
@@ -82,6 +90,7 @@ async function updateContacts(req, res) {
   }
 }
 
+// Controller to delete contacts
 async function deleteContacts(req, res, next) {
     try {
       const id = req.params.id;
